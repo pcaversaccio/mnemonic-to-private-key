@@ -12,7 +12,7 @@ We define the following 5 levels in [BIP32](https://github.com/bitcoin/bips/blob
 ```
 m / purpose' / coin_type' / account' / change / address_index
 ```
-> `m = **Master**`
+> `m = Master`
 
 Each level has a special meaning, described in the chapters below. Apostrophe in the path indicates that [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) hardened derivation is used. Generally, there are two posible types of [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) derivation, *hardened* or *non-hardened*. In standard [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) path notation, hardened derivation at a particular level is indicated by an apostrophe. For example, the following example of hardened derivation is used for the first three levels, while for the last two levels non-hardened derivation is used:
 ```
@@ -22,18 +22,16 @@ m / 44' / 0' / 1' / 1 / 33
 With non-hardened keys, you can prove a child public key is linked to a parent public key using just the public keys. You can also derive public child keys from a public parent key, which enables watch-only wallets. With hardened child keys, you cannot prove that a child public key is linked to a parent public key.
 
 ### `purpose`
-Purpose is a constant set to 44' (or 0x8000002C) following the BIP43 recommendation. It indicates that the subtree of this node is used according to this specification.
+Purpose is a constant set to `44'` (or `0x8000002C`) following the [BIP43](https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki) recommendation. It indicates that the subtree of this node is used according to this specification.
 
 Hardened derivation is used at this level.
 
 ### `coin_type`
-One master node (seed) can be used for unlimited number of independent cryptocoins such as Bitcoin, Litecoin or Namecoin. However, sharing the same space for various cryptocoins has some disadvantages.
+One master node (seed) can be used for unlimited number of independent cryptocurrencies such as Bitcoin, Litecoin, or Ethereum. However, sharing the same space for various cryptocurrencies has some disadvantages.
 
-This level creates a separate subtree for every cryptocoin, avoiding reusing addresses across cryptocoins and improving privacy issues.
+This level creates a separate subtree for every cryptocurrency, avoiding reusing addresses across cryptocurrency and improving privacy issues.
 
-Coin type is a constant, set for each cryptocoin. Cryptocoin developers may ask for registering unused number for their project.
-
-The list of already allocated coin types is in the chapter "Registered coin types" below.
+`coin_type` is a constant, set for each cryptocurrency. Cryptocurrency developers may ask for registering unused number for their project.
 
 Hardened derivation is used at this level.
 
@@ -59,6 +57,9 @@ Public derivation is used at this level.
 Addresses are numbered from index 0 in sequentially increasing manner. This number is used as child index in BIP32 derivation.
 
 Public derivation is used at this level.
+
+### Visualisation
+![](assets/img/derivation_path.png)
 
 ## References
 [1] https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#Purpose
