@@ -31,30 +31,30 @@ One master node (seed) can be used for unlimited number of independent cryptocur
 
 This level creates a separate subtree for every cryptocurrency, avoiding reusing addresses across cryptocurrency and improving privacy issues.
 
-`coin_type` is a constant, set for each cryptocurrency. Cryptocurrency developers may ask for registering unused number for their project.
+`coin_type` is a constant, set for each cryptocurrency. Cryptocurrency developers can ask for registering unused number for their project.
 
 Hardened derivation is used at this level.
 
 ### `account`
 This level splits the key space into independent user identities, so the wallet never mixes the coins across different accounts.
 
-Users can use these accounts to organize the funds in the same fashion as bank accounts; for donation purposes (where all addresses are considered public), for saving purposes, for common expenses etc.
+Users can use these accounts to organise the funds in the same fashion as bank accounts; for donation purposes (where all addresses are considered public), for saving purposes, for common expenses etc.
 
-Accounts are numbered from index 0 in sequentially increasing manner. This number is used as child index in BIP32 derivation.
+Accounts are numbered from index 0 in sequentially increasing manner. This number is used as child index in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) derivation.
 
 Hardened derivation is used at this level.
 
 Software should prevent a creation of an account if a previous account does not have a transaction history (meaning none of its addresses have been used before).
 
-Software needs to discover all used accounts after importing the seed from an external source. Such an algorithm is described in "Account discovery" chapter.
+Software needs to discover all used accounts after importing the seed from an external source.
 
 ### `change`
-Constant 0 is used for external chain and constant 1 for internal chain (also known as change addresses). External chain is used for addresses that are meant to be visible outside of the wallet (e.g. for receiving payments). Internal chain is used for addresses which are not meant to be visible outside of the wallet and is used for return transaction change.
+Constant `0` is used for external chain and constant `1` for internal chain (also known as change addresses). External chain is used for addresses that are meant to be visible outside of the wallet (e.g. for receiving payments). Internal chain is used for addresses which are not meant to be visible outside of the wallet and is used for return transaction change.
 
-Public derivation is used at this level.
+Non-hardened a.k.a public derivation is used at this level.
 
 ### `address_index`
-Addresses are numbered from index 0 in sequentially increasing manner. This number is used as child index in BIP32 derivation.
+Addresses are numbered from index 0 in sequentially increasing manner. This number is used as child index in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) derivation.
 
 Public derivation is used at this level.
 
