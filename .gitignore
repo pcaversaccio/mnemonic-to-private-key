@@ -1,62 +1,29 @@
-*.swp
-*.swo
+# Ignore all Visual Studio Code settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 
-# Logs
-logs
-*.log
+# Local history for Visual Studio Code
+.history
 
-# Runtime data
-pids
-*.pid
-*.seed
-allFiredEvents
-scTopics
-
-# Coverage directory used by tools like istanbul
-coverage
-coverage.json
-coverageEnv
-
-# node-waf configuration
-.lock-wscript
+# Built Visual Studio Code extensions
+*.vsix
 
 # Dependency directory
 node_modules
 
-# Debug log from npm
-npm-debug.log
-
-# local env variables
+# dotenv environment variable files
 .env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
 
 # secrets json
 secrets.json
 
-# truffle build directory
-build/
-
-# macOS
-.DS_Store
-
-# truffle
-.node-xmlhttprequest-*
-
-# IntelliJ IDE
-.idea
-
-# docs artifacts
-docs/modules/api
-
-# only used to package @openzeppelin/contracts
-contracts/build/
-contracts/README.md
-
-# temporary artifact from solidity-coverage
-allFiredEvents
-.coverage_artifacts
-.coverage_cache
-.coverage_contracts
-
-# hardhat
-cache
-artifacts
+# Log files
+npm-debug.log*
